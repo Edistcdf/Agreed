@@ -14,6 +14,15 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y cmake g++
+          
+      - name: GTest
+        run: |
+          sudo apt update
+          git clone https://github.com/google/googletest.git
+          cd googletest
+          cmake -S . -B build
+          cmake --build build
+          sudo cmake --install build
       
       - name: Configure CMake
         run: |
