@@ -9,5 +9,5 @@ include_directories(include)
 add_executable(
     agreed
     src/main.cpp
-    src/sender.cpp
+    src/client.cpp
 )
