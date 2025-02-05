@@ -40,3 +40,8 @@ target_include_directories(
   PRIVATE
   include
 )
+
+enable_testing()
+add_executable(gogo_gadget test/test.cpp)
+target_link_libraries(gogo_gadget gtest gtest_main)
+add_test(NAME dagsMeTest COMMAND gogo_gadget)
