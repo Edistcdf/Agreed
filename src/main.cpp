@@ -1,18 +1,23 @@
-#include "client.h"
-#include <iostream>
+#include <QApplication>
+#include <QWidget>
+#include <QLabel>
 
-int main() {
-    const std::string ip = "127.0.0.1";
-    const uint16_t port = 8080;
+int main(int argc, char *argv[]) {
+    // Create the Qt application object
+    QApplication app(argc, argv);
 
-    UDPSender sender(ip, port);
+    // Create a QWidget as the main window
+    QWidget window;
 
-    std::string message = "Hello, UDP!";
-    if (sender.sendMessage(message)) {
-        std::cout << "Message sent successfully!\n";
-    } else {
-        std::cerr << "Failed to send message.\n";
-    }
+    // Create a label and set its text
+    QLabel *label = new QLabel("Hello, World!", &window);
+    label->move(100, 50);  // Move the label to a specific location within the window
 
-    return 0;
+    // Set the window size and show the window
+    window.resize(300, 200);
+    window.setWindowTitle("Hello World in Qt");
+    window.show();
+
+    // Enter the Qt event loop
+    return app.exec();
 }
