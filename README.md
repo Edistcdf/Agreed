@@ -3,8 +3,12 @@ Agreed
 
 
 ## Build Container
+
+``` bash
 cd dev/
 podman build -t agreed-dev .
+```
+
 ## Starta container för qt
 
 ``` bash
