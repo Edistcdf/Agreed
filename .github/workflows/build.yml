@@ -13,11 +13,26 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install -y cmake g++
+          sudo apt install -y cmake \
+          g++ \
+          qtcreator \
+          qt5-qmake \
+          qtbase5-dev \
+          qtchooser \
+          qtbase5-dev-tools
+          
+      - name: GTest
+        run: |
+          sudo apt update
+          git clone https://github.com/google/googletest.git
+          cd googletest
+          cmake -S . -B build
+          cmake --build build
+          sudo cmake --install build
       
       - name: Configure CMake
         run: |
-          cmake -B build
+          cmake -DCMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu/qt5 -B build
       
       - name: Build project
         run: |
