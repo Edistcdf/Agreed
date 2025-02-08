@@ -59,6 +59,7 @@ void TCPServer::handleClient() {
 		memset(buffer, 0, 1024);
 		int bytes_read;
 		while ((bytes_read = recv(client_fd_, buffer, sizeof(buffer), 0)) > 0) {
+			std::cout << "Server received: " << buffer << std::endl;
 			memset(buffer, 0, bytes_read);
 		}
 

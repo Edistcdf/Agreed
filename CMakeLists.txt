@@ -1,9 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
-project(agreed)
-
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+project(QtAgreed)
 # Not quite sure which are needed
 set(CMAKE_AUTOMOC ON)
 # set(CMAKE_AUTORCC ON)
@@ -39,18 +38,6 @@ target_link_libraries(
 	Qt5::Widgets
 	TCPServer
 	TCPClient
-	)
-
-add_executable(
-	agreed
-	src/main.cpp
-	src/client.cpp
-	)
-
-target_include_directories(
-	agreed
-	PRIVATE
-	include
 	)
 
 enable_testing()
