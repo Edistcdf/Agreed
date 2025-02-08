@@ -24,5 +24,4 @@ class ChatWindow : public QWidget {
 		QLineEdit *textInput;
 };
 
-#include "gui.moc"
 #endif // CHATWINDOW_H

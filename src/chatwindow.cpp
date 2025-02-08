@@ -1,7 +1,7 @@
 #include "chatwindow.h"
 #include "TCPServer.h"
 #include "TCPClient.h"
-
+#include "chatwindow.moc"
 ChatWindow::ChatWindow(QWidget *parent) : QWidget(parent), server_("127.0.0.1", 8080), client_("127.0.0.1", 8080){
 	server_.start();
 	client_.connectToServer();
@@ -22,3 +22,4 @@ void ChatWindow::onEnterPressed() {
 		textInput->clear();
 	}
 }
+
