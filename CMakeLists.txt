@@ -14,7 +14,7 @@ find_package(Qt5 COMPONENTS REQUIRED Widgets)
 add_executable(
   QtWindow
   src/gui.cpp
-  src/mainwindow.cpp
+  src/chatwindow.cpp
 )
 
 target_include_directories(
