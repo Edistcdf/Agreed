@@ -11,35 +11,47 @@ set(CMAKE_AUTOMOC ON)
 
 find_package(Qt5 COMPONENTS REQUIRED Widgets)
 
+add_library(TCPServer STATIC ${CMAKE_SOURCE_DIR}/src/TCPServer.cpp)
+add_library(TCPClient STATIC ${CMAKE_SOURCE_DIR}/src/TCPClient.cpp)
+
+target_include_directories(TCPServer PUBLIC ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(TCPClient PUBLIC ${CMAKE_SOURCE_DIR}/include)
+
+# Create the QtWindow application
+
+# Link the libraries to the QtWindow application
+
 add_executable(
-  QtWindow
-  src/gui.cpp
-  src/chatwindow.cpp
-)
+	QtWindow
+	src/gui.cpp
+	src/chatwindow.cpp
+	)
 
 target_include_directories(
-  QtWindow
-  PRIVATE
-  include
-)
+	QtWindow
+	PRIVATE
+	include
+	)
 
 target_link_libraries(
-  QtWindow
-  PRIVATE
-  Qt5::Widgets
-)
+	QtWindow
+	PRIVATE
+	Qt5::Widgets
+	TCPServer
+	TCPClient
+	)
 
 add_executable(
-  agreed
-  src/main.cpp
-  src/client.cpp
-)
+	agreed
+	src/main.cpp
+	src/client.cpp
+	)
 
 target_include_directories(
-  agreed
-  PRIVATE
-  include
-)
+	agreed
+	PRIVATE
+	include
+	)
 
 enable_testing()
 add_executable(gogo_gadget test/test.cpp)
