@@ -1,6 +1,8 @@
 #ifndef CHATWINDOW_H
 #define CHATWINDOW_H
 
+#include <QCloseEvent>
+#include <QLabel>
 #include <QApplication>
 #include <QWidget>
 #include <QLineEdit>
@@ -14,6 +16,9 @@ class ChatWindow : public QWidget {
 
 	public:
 		ChatWindow(QWidget *parent = nullptr);
+		~ChatWindow();
+protected:
+    void closeEvent(QCloseEvent *event) override;
 
 		private slots:
 			void onEnterPressed();

@@ -24,12 +24,15 @@ add_executable(
 	QtWindow
 	src/gui.cpp
 	src/chatwindow.cpp
+	src/contactswindow.cpp
+	src/mainwindow.cpp
 	)
 
 target_include_directories(
 	QtWindow
 	PRIVATE
 	include
+	src
 	)
 
 target_link_libraries(
