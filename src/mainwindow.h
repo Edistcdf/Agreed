@@ -1,12 +1,16 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
-
+#include <QApplication>
 #include <QMainWindow>
+#include <QPushButton>
+#include <QWidget>
+#include <QVBoxLayout>
+#include <QLabel>
 
 class MainWindow : public QMainWindow {
-    Q_OBJECT
-public:
-    explicit MainWindow(QWidget *parent = nullptr);
-};
+	Q_OBJECT
+	public:
+		MainWindow(QWidget *parent = nullptr);
 
-#endif // MAINWINDOW_H
+		private slots:
+			void openChat();
+			void openContacts();
+};
